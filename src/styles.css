@@ -1,90 +1,85 @@
+:root {
+  --system-ui: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  --base-unit: 32px;
+  --base-font-size: var(--base-unit);
+  --sm: calc(var(--base-unit) * 0.75);
+  --xs: calc(var(--base-unit) * 0.5);
+}
+
+body, button {
+  font-family: var(--system-ui);
+  color: #002244;
+}
+
 * {
   box-sizing: border-box;
 }
 
 body {
-  font-family: sans-serif;
-  margin: 20px;
+  margin: var(--base-unit);
   padding: 0;
 }
 
 h1 {
   margin-top: 0;
-  font-size: 22px;
-}
-
-h2 {
-  margin-top: 0;
-  font-size: 20px;
-}
-
-h3 {
-  margin-top: 0;
-  font-size: 18px;
-}
-
-h4 {
-  margin-top: 0;
-  font-size: 16px;
-}
-
-h5 {
-  margin-top: 0;
-  font-size: 14px;
-}
-
-h6 {
-  margin-top: 0;
-  font-size: 12px;
-}
-
-code {
-  font-size: 1.2em;
-}
-
-ul {
-  padding-inline-start: 20px;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-body {
-  font-family: sans-serif;
-  margin: 20px;
-  padding: 0;
+  font-size: var(--base-unit);
+  text-align: center;
 }
 
 .square {
-  background: #fff;
-  border: 1px solid #999;
-  float: left;
-  font-size: 24px;
+  background: #00224418;
+  border: 1px solid #00224480;
+  font-size: var(--sm);
   font-weight: bold;
-  line-height: 34px;
-  height: 34px;
-  margin-right: -1px;
-  margin-top: -1px;
+  line-height: var(--base-unit);
+  height: var(--base-unit);
   padding: 0;
   text-align: center;
-  width: 34px;
-}
-
-.board-row:after {
-  clear: both;
-  content: '';
-  display: table;
 }
 
 .status {
   margin-bottom: 10px;
 }
+
 .game {
   display: flex;
-  flex-direction: row;
+  gap: var(--base-unit);
+  flex-direction: column;
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  background: #00224420;
+  padding: var(--base-unit);
+  border: solid 1px #00224480;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px 4px #00224418;
 }
 
-.game-info {
-  margin-left: 20px;
+@media (min-width:400px) {
+  .game {
+    flex-direction: row;
+  }
+
+  .game > div {
+    flex: 1 1 50%;
+  }
+}
+
+.board-grid {
+  display: grid;
+  width: min-content;
+  grid-template-columns: repeat(3, var(--base-unit));
+  border: 1px solid #00224480;
+}
+
+.game-info > div {
+  margin-bottom: var(--xs);
+}
+
+
+.game-info button {
+  background: #00224418;
+  border-color: #00224480;
+  border-radius: 4px;
+  padding: 4px 8px;
 }
